@@ -1,4 +1,3 @@
-
 interface IMemberOperation {
     double discountedFee();
 }
@@ -18,7 +17,7 @@ abstract class Member {
     abstract void showInfo();
 }
 
-// PlatinumMember.java
+
 class PlatinumMember extends Member implements IMemberOperation {
     int freeSessions;
 
@@ -46,7 +45,7 @@ class PlatinumMember extends Member implements IMemberOperation {
     }
 }
 
-// StandardMember.java
+
 class StandardMember extends Member implements IMemberOperation {
     boolean groupClassAccess;
 
@@ -74,7 +73,7 @@ class StandardMember extends Member implements IMemberOperation {
     }
 }
 
-// Gym.java
+
 class Gym {
     String name;
     Member mm[];
@@ -122,7 +121,7 @@ class Gym {
         double total = 0;
         for (Member m : mm) {
             if (m != null) {
-                // Using discountedFee from interface via polymorphism
+                
                 if (m instanceof IMemberOperation) {
                     total += ((IMemberOperation) m).discountedFee();
                 } else {
@@ -134,17 +133,16 @@ class Gym {
     }
 }
 
-// Start.java (Driver Class)
+
 public class Start {
     public static void main(String[] args) {
-        // Polymorphic behavior: Member reference, subclass objects
+        
         Member m1 = new PlatinumMember("P001", 9000.0, 5);
         Member m2 = new StandardMember("S001", 7000.0, true);
 
-        // Parameterized constructor for Gym
+       
         Gym gym = new Gym("FitZone", 5);
 
-        // Demonstrate relevant methods
         gym.addMember(m1);
         gym.addMember(m2);
 
